@@ -1,0 +1,10 @@
+EIDG/
+  index.html
+  nacional.html
+  local.html
+  styles.css
+  script.js
+  EIDG.jpg
+  Fondo.jpeg
+  Paqueteria.jpg
+  Local.png
