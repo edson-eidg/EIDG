@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nacional - EIDG</title>
+<link rel="stylesheet" href="styles.css">
+<script src="script.js"></script>
+</head>
+<body>
+<header><img src="EIDG.jpg" class="logo"><h1>EIDG INC - Envío Nacional</h1></header>
+<div class="container">
+  <img src="Paqueteria.jpg" style="width:100%;border-radius:8px;margin-bottom:12px" alt="Paqueteria">
+  <label>Introduce texto (puede ir desordenado)</label>
+  <textarea id="rawNac" placeholder="Pega aquí líneas: nombre, calle, número, colonia, municipio, estado, CP, teléfono (en cualquier order)"></textarea>
+  <div style="display:flex;gap:8px;margin-top:6px">
+    <button class="btn" onclick="fillFromRaw('rawNac')">Autollenar</button>
+    <button class="btn" onclick="document.getElementById('rawNac').value=''">Limpiar</button>
+  </div>
+
+  <div class="form-section" style="margin-top:12px">
+    <div class="form-row">
+      <div><label>Nombre</label><input id="nombre"></div>
+      <div><label>Calle</label><input id="calle"></div>
+    </div>
+    <div class="form-row" style="margin-top:6px">
+      <div><label>Número</label><input id="numero"></div>
+      <div><label>Colonia</label><input id="colonia"></div>
+    </div>
+    <div class="form-row" style="margin-top:6px">
+      <div><label>Municipio</label><input id="municipio"></div>
+      <div><label>Estado</label><input id="estado"></div>
+    </div>
+    <div class="form-row" style="margin-top:6px">
+      <div><label>Código Postal</label><input id="cp"></div>
+      <div><label>Teléfono</label><input id="telefono"></div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:12px">Costos</h3>
+  <div class="costs">
+    <div><label>PACA</label><input id="paca" oninput="calcTotal()"></div>
+    <div><label>COSTO</label><input id="costo" oninput="calcTotal()"></div>
+    <div><label>ENVÍO</label><input id="envio" oninput="calcTotal()"></div>
+    <div><label>TOTAL</label><input id="total" readonly></div>
+  </div>
+
+  <div style="margin-top:12px">
+    <label>Paquetería</label>
+    <select id="paqueteria"><option>FedEx</option><option>PaquetExpres</option></select>
+  </div>
+
+  <div style="margin-top:12px;display:flex;gap:8px">
+    <button class="btn" onclick="sendWANacional()">Enviar por WhatsApp</button>
+    <a href="index.html" class="btn" style="background:#9b59b6">Volver</a>
+  </div>
+</div>
+</body></html>

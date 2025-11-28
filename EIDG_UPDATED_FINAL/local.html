@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Local - EIDG</title>
+<link rel="stylesheet" href="styles.css">
+<script src="script.js"></script>
+</head>
+<body>
+<header><img src="EIDG.jpg" class="logo"><h1>EIDG INC - Envío Local</h1></header>
+<div class="container">
+  <img src="Local.png" style="width:100%;border-radius:8px;margin-bottom:12px" alt="Local">
+
+  <label>Selecciona Municipio</label>
+  <select id="municipioSel" onchange="autoMunicipioSelect('municipioSel')">
+    <option value="">-- Selecciona --</option>
+    <option value='Apodaca $200'>Apodaca — $200</option>
+<option value='Apodaca $250'>Apodaca — $250</option>
+<option value='Cadereyta Jiménez $250'>Cadereyta Jiménez — $250</option>
+<option value='El Carmen $350'>El Carmen — $350</option>
+<option value='García $350'>García — $350</option>
+<option value='General Escobedo $330'>General Escobedo — $330</option>
+<option value='Guadalupe $200'>Guadalupe — $200</option>
+<option value='Juárez $150'>Juárez — $150</option>
+<option value='Monterrey $300'>Monterrey — $300</option>
+<option value='Salinas Victoria $350'>Salinas Victoria — $350</option>
+<option value='San Nicolás de los Garza $300'>San Nicolás de los Garza — $300</option>
+<option value='San Pedro Garza García $330'>San Pedro Garza García — $330</option>
+<option value='Santa Catarina $330'>Santa Catarina — $330</option>
+<option value='Santiago $450'>Santiago — $450</option>
+<option value='Pesqueria $200'>Pesqueria — $200</option>
+<option value='Pesqueria $250'>Pesqueria — $250</option>
+  </select>
+
+  <label style="margin-top:10px">Introduce texto (puede ir desordenado)</label>
+  <textarea id="rawLocal" placeholder="Pega aquí líneas: nombre, calle, número, colonia, municipio, teléfono (en cualquier order)"></textarea>
+  <div style="display:flex;gap:8px;margin-top:6px">
+    <button class="btn" onclick="fillFromRaw('rawLocal')">Autollenar</button>
+    <button class="btn" onclick="document.getElementById('rawLocal').value=''">Limpiar</button>
+  </div>
+
+  <div class="form-section" style="margin-top:12px">
+    <div class="form-row">
+      <div><label>Nombre</label><input id="nombre"></div>
+      <div><label>Calle</label><input id="calle"></div>
+    </div>
+    <div class="form-row" style="margin-top:6px">
+      <div><label>Número</label><input id="numero"></div>
+      <div><label>Colonia</label><input id="colonia"></div>
+    </div>
+    <div class="form-row" style="margin-top:6px">
+      <div><label>Municipio</label><input id="municipio"></div>
+      <div><label>Teléfono</label><input id="telefono"></div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:12px">Costos</h3>
+  <div class="costs">
+    <div><label>PACA</label><input id="paca" oninput="calcTotal()"></div>
+    <div><label>COSTO</label><input id="costo" oninput="calcTotal()"></div>
+    <div><label>ENVÍO</label><input id="envio" readonly></div>
+    <div><label>TOTAL</label><input id="total" readonly></div>
+  </div>
+
+  <div style="margin-top:12px">
+    <label>Entrega</label>
+    <div style="display:flex;gap:8px;margin-top:6px">
+      <label class="small"><input type="radio" name="dia" value="Hoy"> Hoy</label>
+      <label class="small"><input type="radio" name="dia" value="Mañana"> Mañana</label>
+    </div>
+    <label style="margin-top:8px">Horario</label>
+    <input id="horario" placeholder="Horario (opcional)">
+  </div>
+
+  <div style="margin-top:12px;display:flex;gap:8px">
+    <button class="btn" onclick="sendWALocal()">Enviar por WhatsApp</button>
+    <a href="index.html" class="btn" style="background:#9b59b6">Volver</a>
+  </div>
+</div>
+</body></html>
